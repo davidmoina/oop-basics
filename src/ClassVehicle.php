@@ -1,10 +1,10 @@
 <?php
 
-class Vehicle {
-    public $strBrand;
-    public $strColor;
-    public $strModel;
-    public $fltPrice;
+abstract class Vehicle {
+    protected $strBrand;
+    protected $strColor;
+    protected $strModel;
+    protected $fltPrice;
 
     public function __construct(string $brand, string $color, string $model, float $price) {
         $this->strBrand = $brand;
@@ -13,7 +13,12 @@ class Vehicle {
         $this->fltPrice = $price;
     }
 
-    public function getVehicleInfo() {
+    public function __destruct()
+    {
+        echo "<br><br>Car " . $this->strBrand . " has been successfully deleted!";
+    }
+
+    protected function getVehicleInfo() {
         $data = "
                 <h2>Vehicle Info</h2>
                 Brand: {$this->strBrand}<br>
@@ -25,35 +30,35 @@ class Vehicle {
             return $data;
     }
 
-    public function setBrand(string $brand) {
+    protected function setBrand(string $brand) {
         $this->strBrand = $brand;
     }
 
-    public function setColor(string $color) {
+    protected function setColor(string $color) {
         $this->strColor = $color;
     }
 
-    public function setPrice(float $price) {
+    protected function setPrice(float $price) {
         $this->fltPrice = $price;
     }
 
-    public function setModel(string $model) {
+    protected function setModel(string $model) {
         $this->strModel = $model;
     }
 
-    public function getBrand() {
+    protected function getBrand() {
         return $this->strBrand;
     }
 
-    public function getColor() {
+    protected function getColor() {
         return $this->strColor;
     }
 
-    public function getModel() {
+    protected function getModel() {
         return $this->strModel;
     }
 
-    public function getPrice() {
+    protected function getPrice() {
         return $this->fltPrice;
     }
 }

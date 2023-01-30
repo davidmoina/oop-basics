@@ -1,12 +1,18 @@
 <?php
 
 require_once ("ClassVehicle.php");
+require_once ("VehicleInterface.php");
 
-class Car extends Vehicle {
-    public $blAirbag = false;
+class Car extends Vehicle implements newVehicles {
+    private $blAirbag = false;
+    private $intChassisNum;
 
     public function __construct(string $brand, string $color, string $model, float $price) {
         parent::__construct($brand, $color, $model, $price);
+    }
+    
+    public static function setChassisNumber() {
+        return rand();
     }
 
     public function setAirbag(bool $airbag) {
@@ -32,5 +38,13 @@ class Car extends Vehicle {
             ";
 
             return $data;
+    }
+
+    public function setCarRegistration() {
+        return "<br> Car Registration Number: " . rand();
+    }
+
+    public function setOwner(string $name) {
+        return "<br> The owner of the car " . $this->strBrand . " is " . $name;
     }
 }

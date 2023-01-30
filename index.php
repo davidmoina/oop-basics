@@ -8,5 +8,9 @@
 
     echo $objCar->getVehicleInfo();
 
+    echo "Chassis Number: " . Car::setChassisNumber();
+
+    echo $objCar->setOwner("David");
+    echo $objCar->setCarRegistration()
 
 ?>
